@@ -1,0 +1,36 @@
+{
+  "name": "express-mvc",
+  "version": "1.0.0",
+  "description": "this is mvc built in express for project startups",
+  "main": "cluster.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cluster": "^0.7.7",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "cors": "^2.8.4",
+    "crypto": "^1.0.1",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-logger": "^0.0.3",
+    "express-validator": "^5.1.2",
+    "jsend": "^1.0.2",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^4.13.14",
+    "morgan": "^1.9.1",
+    "multer": "^1.3.0",
+    "nodemailer": "^4.6.8",
+    "swagger-node-express": "^2.1.3",
+    "swagger-ui": "^3.13.6",
+    "swagger-ui-express": "^3.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  },
+  "scripts": {
+    "test": "console.log('server tested')",
+    "start": "nodemon cluster.js"
+  },
+  "author": "piyush kapoor",
+  "license": "ISC"
+}
