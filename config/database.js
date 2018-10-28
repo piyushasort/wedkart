@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 mongoose.Promise = global.Promise;
 //mongoose.connect('mongodb://' + config.db.host + ':' + config.db.port + '/' + config.db.database + '', { useMongoClient: true });
 //Mongoose.connect('mongodb://'+config.db.host+':'+config.db.port+'/'+config.db.database+'',{useMongoClient: true});
-mongoose.connect('mongodb://oriano_user:oriano12345@ds211083.mlab.com:11083/oriano_db');
+mongoose.connect('mongodb://localhost:27017/wedkart');
 var db = mongoose.connection;
 db.on('open',(err)=>{
 	if(err) {

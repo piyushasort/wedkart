@@ -15,8 +15,8 @@ var productSchema = new Schema({
     specifications: { type: Array, required: false, trim: true, default: [] },
     quantity: { type: Number, required: true, trim: true },
     quantityType: { type: String, required: true, trim: true },
-    category: { type: String, required: true, ref: 'category' },
-    subCategory: { type: String},
+    category: { type: String, required: true, ref: 'categories' },
+    subcategory: { type: String, required: true, ref: 'subcategories'  },
     seller: {
         id: {
             type: Schema.Types.ObjectId,

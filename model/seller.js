@@ -7,7 +7,7 @@ var sellerSchema = new Schema({
     password: { type: String, required: true },
     phone: { type: String, required: false, trim: true },
     image: { type: String, required: false, trim: true},
-    confirmToken: { type: String, required: false },
+    confirmCode: { type: String, required: false },
     recoverCode: { type: String, required: false },
     token: { type: String, required: false },
     address: { type: String, required: false, trim: true },
@@ -42,79 +42,6 @@ sellerSchema.statics.findExistence = function (ep, password) {
         }
     ).lean();
 }
-
-sellerSchema.statics.updateCode = function (id, code) {
-    this.update({ '_id': id }, { $set: { 'recoverCode': code } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-
-}
-
-sellerSchema.statics.updateToken = function (id, token) {
-    this.update({ '_id': id }, { $set: { 'token': token } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-
-}
-sellerSchema.statics.removeToken = function (id) {
-    this.update({ '_id': id }, { $unset: { 'token': null } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-
-}
-sellerSchema.statics.updatePassword = function (id, password) {
-    this.update({ '_id': id }, { $set: { 'password': password } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-}
-
-sellerSchema.statics.updateImage = function (id, url) {
-    this.update({ '_id': id }, { $set: { 'image': url } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-
-}
-
-sellerSchema.statics.updateProducts = function (id, products){
-    console.log(id)
-    this.update({ '_id': id }, { $set: { 'products': products } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-}
-
-sellerSchema.statics.approveSeller = function (id){
-    this.update({ '_id': id }, { $set: { 'isApproved': true } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-}
-
-sellerSchema.statics.blockSeller = function (id, bool){
-    this.update({ '_id': id }, { $set: { 'isBlocked': !bool } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-}
-
-sellerSchema.statics.updateSentMail = function (id, sent) {
-    this.update({ '_id': id }, { $set: { 'sent': sent } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-
-}
-
-sellerSchema.statics.updateInboxMail = function (id, inbox) {
-    this.update({ '_id': id }, { $set: { 'inbox': inbox } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-
-}
-
-sellerSchema.statics.confirmAccountMail = function (id) {
-    this.update({ '_id': id }, { $set: { 'isConfirmed': true } }).exec(function (err, data) {
-        if (err) throw err;
-    })
-
-}
-
 
 
 module.exports = database.mongoose.model('sellers', sellerSchema)
